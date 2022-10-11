@@ -13,7 +13,7 @@
 ## `Milestone 2` — Integrating into the Live Bridge
 | Length | Deliverable | Specification |
 |:-:|:-:|-|
-| 3 weeks | Validators, Backend, Frontend | 1. Developing validation logic relevant for the Skale part of the bridge<br/>2. Adding Skale to the Bridge NFT-Indexer<br/>3. Integrating TX fee estimation<br/>4. Plugging Skale in the heartbeat<br/>5. [Integrating with Skale rpc nodes](#25-integrated-skale-rpc-nodes)<br/>6. Integrating Skale in the bridge UI<br/>7. [Deploying smart contracts to the testnet](#27-deployed-contracts-on-the-skale-testnet)<br/>8. [Adding Skale to the bridge JS library](https://github.com/XP-NETWORK/xpjs/search?q=skale)|
+| 3 weeks | Validators, Backend, Frontend | 1. Developing validation logic relevant for the Skale part of the bridge<br/>2. Adding Skale to the Bridge NFT-Indexer<br/>3. Integrating TX fee estimation<br/>4. Plugging Skale in the heartbeat<br/>5. [Integrating with Skale rpc nodes](#25-integrated-skale-rpc-nodes)<br/>6. Integrating Skale in the [bridge UI](#26-ui-integration)<br/>7. [Deploying smart contracts to the testnet](#27-deployed-contracts-on-the-skale-testnet)<br/>8. [Adding Skale to the bridge JS library](https://github.com/XP-NETWORK/xpjs/search?q=skale)|
 
 ## `Milestone 3` — Testing, Fixing Bugs & Documenting
 
@@ -38,6 +38,15 @@
 |:-:|:-:|:-:|
 |Testnet|https://staging-v2.skalenodes.com/v1/actual-secret-cebalrai|[Link](https://github.com/XP-NETWORK/xpjs/blob/964e10733e9023ff4ed6f63a1089edc6e22d008e/src/consts.ts#L53)|
 |Mainnet|https://mainnet.skalenodes.com/v1/honorable-steel-rasalhague|[Link](https://github.com/XP-NETWORK/xpjs/blob/964e10733e9023ff4ed6f63a1089edc6e22d008e/src/consts.ts#L84)
+
+### 2.6 UI Integration
+
+Testnet UI:
+![Testnet UI](assets/2.png))
+
+Mainnet UI:
+![Mainnet UI](assets/1.png))
+
 ### 2.7 Deployed contracts on the Skale Testnet
 
 |Contract Name|Contract Address|
