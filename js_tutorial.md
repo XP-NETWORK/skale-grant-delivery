@@ -1,4 +1,5 @@
-### Setting up the project:
+# XP.NETWORK JavaScript Library Tutorial for interacting with Skale
+## Setting up the project:
 
 ```bash
 mkdir testing-skale
@@ -11,7 +12,7 @@ echo "SK=replace_with_your_private_key_here" >> .env
 
 Set up your tsconfig file to compile all the files from the `src` folder to JS in the `dist` folder, for example.
 
-### Initializing all the common entities in the setup script
+## 0. Initializing all the common entities in the setup script
 
 `./src/index.ts`
 
@@ -54,7 +55,7 @@ export const setup = async () => {
 }
 ```
 
-### Minting on Skale:
+## 1. Minting on Skale:
 
 Because testnets are not always equipped with marketplaces it is useful to mint NFTs for testing like so:
 
@@ -106,7 +107,7 @@ const mint = async (url: string): Promise<ContractTransaction>  => {
 Minting transaction on the chain: https://actual-secret-cebalrai.explorer.staging-v2.skalenodes.com/tx/0x954f057b6f5712e3489c19b6e9eb684504ffbd313f491df7c6875691edc5db7c/token-transfers
 
 
-## NFT-Indexer
+## 2. NFT-Indexer
 
 To see a user's NFTs on Skale use the following code snippet:
 
@@ -165,76 +166,48 @@ NFTs: [
 ✨  Done in 29.54s.
 ```
 
-### Transaction fee estimation
+## 3. Approving
 
 ```ts
 import {setup} from "./index";
 import {config} from "dotenv"; config();
 import {exit} from "process";
-import {ChainFactoryConfigs, Chain} from "xp.network"
+import {nftList} from "./nft_index";
 
-const estimate = async () => {
+export const approve = async () => {
+
     const {
-        factory,
         skale,
         signer
     } = await setup();
 
-    // Replace with any other supported chain following the pattern
-    const bsc = await factory.inner(Chain.BSC);
+    const NFTs = await nftList();
+    const selected = NFTs[0];
 
-    const uri = "replace with your url";
-    const contract = (await ChainFactoryConfigs.TestNet()).skaleParams?.erc721Minter!;
-    let owner = await signer.getAddress(); // or replace with a different valid address
-    owner = owner.toString();
-    const tokenId = "12"; // replace with your token ID
+    console.log("Selected:", selected);
+    
 
-    // The selected NFT to be transferred
-    const selected = {
-        uri,
-        native: {
-          chainId: '30',
-          tokenId,
-          owner,
-          contract,
-          symbol: 'UMT',
-          name: 'UserNftMinter',
-          uri,
-          contractType: 'ERC721'
-        },
-        collectionIdent: contract
-      }
-
-    const skale_bsc = await factory.estimateFees(
-        skale,
-        bsc,
-        //@ts-ignore
+    const approveResult = await skale.approveForMinter(
         selected,
-        owner // If sendinw to oneself
+        signer
     );
 
-    return skale_bsc.toString();
+    return approveResult;
+
 }
 
-
-// Calling the funciton
+// Calling the function
 (async () => {
-    const Result = await estimate();
-    console.log("Estimation:", Result);
+    const Result = await approve();
+    console.log("Approve result:", Result);
     exit(0);
 })().catch(e => {
     console.error(e);
     exit(1);
-})
-```
-Example output:
-```bash
-$ tsc && node ./dist/estimate.js
-Estimation: 38489638594795216500
-✨  Done in 7.14s.
+});
 ```
 
-### Token Transfer from Skale
+## 4. Token Transfer from Skale
 
 In this example code snippet we're transferring an NFT to BSC:
 
@@ -306,3 +279,74 @@ const transfer = async (selected: any) => {
 Transfer transaction on Skale: https://actual-secret-cebalrai.explorer.staging-v2.skalenodes.com/tx/0xe3d32b6953f1b62ee6ecd09aacf648863cc85499e4b006597ea750e05ae834bc/token-transfers
 
 Wrapped NFT minted on BSC: https://testnet.bscscan.com/tx/0x09eb3c16b49a1fb20857a5f48fc1add289e8a83056be2a08bf8b07e5a0de1c35
+
+## Transaction fee estimation
+
+It is an optional step that may be required to display the estimated cost in a user UI.
+
+```ts
+import {setup} from "./index";
+import {config} from "dotenv"; config();
+import {exit} from "process";
+import {ChainFactoryConfigs, Chain} from "xp.network"
+
+const estimate = async () => {
+    const {
+        factory,
+        skale,
+        signer
+    } = await setup();
+
+    // Replace with any other supported chain following the pattern
+    const bsc = await factory.inner(Chain.BSC);
+
+    const uri = "replace with your url";
+    const contract = (await ChainFactoryConfigs.TestNet()).skaleParams?.erc721Minter!;
+    let owner = await signer.getAddress(); // or replace with a different valid address
+    owner = owner.toString();
+    const tokenId = "12"; // replace with your token ID
+
+    // The selected NFT to be transferred
+    const selected = {
+        uri,
+        native: {
+          chainId: '30',
+          tokenId,
+          owner,
+          contract,
+          symbol: 'UMT',
+          name: 'UserNftMinter',
+          uri,
+          contractType: 'ERC721'
+        },
+        collectionIdent: contract
+      }
+
+    const skale_bsc = await factory.estimateFees(
+        skale,
+        bsc,
+        //@ts-ignore
+        selected,
+        owner // If sendinw to oneself
+    );
+
+    return skale_bsc.toString();
+}
+
+
+// Calling the funciton
+(async () => {
+    const Result = await estimate();
+    console.log("Estimation:", Result);
+    exit(0);
+})().catch(e => {
+    console.error(e);
+    exit(1);
+})
+```
+Example output:
+```bash
+$ tsc && node ./dist/estimate.js
+Estimation: 38489638594795216500
+✨  Done in 7.14s.
+```
