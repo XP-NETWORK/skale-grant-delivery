@@ -105,7 +105,65 @@ const mint = async (url: string): Promise<ContractTransaction>  => {
 
 Minting transaction on the chain: https://actual-secret-cebalrai.explorer.staging-v2.skalenodes.com/tx/0x954f057b6f5712e3489c19b6e9eb684504ffbd313f491df7c6875691edc5db7c/token-transfers
 
-[Link](#transaction-fee-estimation)
+
+## NFT-Indexer
+
+To see a user's NFTs on Skale use the following code snippet:
+
+```ts
+import {setup} from "./index";
+import {config} from "dotenv"; config();
+import {exit} from "process";
+
+export const nftList = async () => {
+
+    const {
+        factory,
+        skale,
+        signer
+    } = await setup();
+
+    const NFTs = await factory.nftList(
+        skale,
+        (await signer.getAddress()).toString()
+    );
+
+    return NFTs;
+}
+
+// Calling the function:
+(async () => {
+    const Result = await nftList();
+    console.log("NFTs:", Result);
+    exit(0);
+})().catch(e => {
+    console.error(e);
+    exit(1);
+})
+```
+
+Example output:
+
+```bash
+$ tsc && node ./dist/nft_index.js
+NFTs: [
+  {
+    uri: 'https://meta.polkamon.com/meta?id=10001419693',
+    native: {
+      chainId: '30',
+      tokenId: '12',
+      owner: '0x0d7df42014064a163DfDA404253fa9f6883b9187',
+      contract: '0x34933A5958378e7141AA2305Cdb5cDf514896035',
+      symbol: 'UMT',
+      name: 'UserNftMinter',
+      uri: 'https://meta.polkamon.com/meta?id=10001419693',
+      contractType: 'ERC721'
+    },
+    collectionIdent: '0x34933A5958378e7141AA2305Cdb5cDf514896035'
+  }
+]
+✨  Done in 29.54s.
+```
 
 ### Transaction fee estimation
 
