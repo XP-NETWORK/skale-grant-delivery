@@ -13,7 +13,7 @@
 ## `Milestone 2` — Integrating into the Live Bridge
 | Specification |
 |:-|
-| 1. Developing validation logic relevant for the Skale part of the bridge<br/>2. Adding Skale to the Bridge [NFT-Indexer](./proof.md/#22-nft-indexing)<br/>3. Integrating [TX fee estimation](./proof.md/#23-tx-fee-estination)<br/>4. Plugging Skale in the [heartbeat](./proof.md/#24-heartbeat)<br/>5. [Integrating with Skale rpc nodes](./proof.md/#25-integrated-skale-rpc-nodes)<br/>6. Integrating Skale in the [bridge UI](./proof.md/#26-ui-integration)<br/>7. [Deploying smart contracts to the testnet](./proof.md/#27-deployed-contracts-on-the-skale-testnet)<br/>8. [Adding Skale to the bridge JS library](https://github.com/XP-NETWORK/xpjs/search?q=skale)|
+| 1. Added Skale to the Bridge [NFT-Indexer](./proof.md/#22-nft-indexing)<br/>2. Integrated [TX fee estimation](./proof.md/#23-tx-fee-estimation)<br/>3. Plugged Skale in the [heartbeat](./proof.md/#24-heartbeat)<br/>4. [Integrated with Skale rpc nodes](./proof.md/#25-integrated-skale-rpc-nodes)<br/>5. Integrated Skale in the [bridge UI](./proof.md/#26-ui-integration)<br/>6. [Deployed smart contracts to the testnet](./proof.md/#27-deployed-contracts-on-the-skale-testnet)<br/>7. [Added Skale to the bridge JS library](https://github.com/XP-NETWORK/xpjs/search?q=skale)|
 
 ## `Milestone 3` — Testing, Fixing Bugs & Documenting
 

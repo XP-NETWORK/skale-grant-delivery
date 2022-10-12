@@ -16,8 +16,7 @@ GET https://testnet-notifier.xp.network/testnet-indexer/nfts/<chain-nonce>/<user
 NFT Indexing in the bridge UI:
 
 ![NFT Indexing in the UI](assets/4.png)
-
-### 2.3 TX Fee estination
+### 2.3 TX Fee estimation
 
 Check the [JS tutorial](./js_tutorial.md/#transaction-fee-estimation) of the present delivery report.
 
