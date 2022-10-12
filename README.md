@@ -45,9 +45,17 @@ Request Structure:
 GET https://testnet-notifier.xp.network/testnet-indexer/nfts/<chain-nonce>/<user-address>
 ```
 
+NFT Indexing in the bridge UI:
+
+![NFT Indexing in the UI](assets/4.png)
+
 ### 2.3 TX Fee estination
 
 Check the [JS tutorial](./js_tutorial.md/#transaction-fee-estimation) of the present delivery report.
+
+TX fee estimation in the bridge UI:
+
+![TX fee estimation in the bridge UI](assets/5.png)
 ### 2.4 Heartbeat
 
 Link: https://bridgestatus.herokuapp.com/status
