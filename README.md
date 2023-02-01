@@ -27,4 +27,4 @@
 
 | Length | Deliverable | Specification |
 |:-:|:-:|-|
-| 1 week | Mainnet Integration | 1. Deploying the contracts in the Mainnet environment<br/>2. Integrating the mainnet Wallet<br/>3. Integrating the mainnet NFT-Indexer<br/>4. Integrating the mainnet validators<br/>5. Testing the Integrated Skale in the mainnet<br/>6.Adding Skale to the bridge widget |
+| 1 week | Mainnet Integration | 1. [Deployed the contracts in the Mainnet environment](./milestone4.md#1-deployed-the-contracts-in-the-mainnet-environment)<br/>2. [Integrated the mainnet Wallet](./milestone4.md#2-integrated-the-mainnet-wallet)<br/>3. [Integrated the mainnet NFT-Indexer](./milestone4.md#3-integrated-the-mainnet-nft-indexer)<br/>4. [Integrated the mainnet validators](./milestone4.md#4-integrating-the-mainnet-validators)<br/>5. [Tested the Integrated Skale in the mainnet](./milestone4.md#5-tested-the-integrated-skale-in-the-mainnet)<br/>6. [Added Skale to the bridge widget](./milestone4.md#6-added-skale-to-the-bridge-widget) |
