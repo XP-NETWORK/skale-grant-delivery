@@ -21,8 +21,6 @@
 |:-|
 | 1. The code contains inline documentation and a [basic tutorial](./js_tutorial.md) that can interact with the deployed smart contracts and backend service.<br/>2. The code has unit-test coverage 85% to ensure functionality and robustness.<br/>3. [Deploying](./proof.md/#27-deployed-contracts-on-the-skale-testnet) and [testing](./proof.md/#33-testnet-transactions) the contracts in the testnet environment|
 
-# LEFT TO DO
-
 ## `Milestone 4` — Mainnet Integration & Deployment
 
 | Length | Deliverable | Specification |
